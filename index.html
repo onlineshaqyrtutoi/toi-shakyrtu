@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тойға Шақырту</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Тікелей өзіміздің CSS файлды қосамыз -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Фондық музыка батырмасы -->
+    <div class="music-btn" id="musicBtn" onclick="toggleMusic()">
+        <i class="fas fa-music"></i>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <!-- Басты Бөлім -->
+        <header class="header">
+            <div class="ornament">⚜️ ⚜️ ⚜️</div>
+            <p class="subtitle">ТОЙҒА ШАҚЫРУ</p>
+            <h1 class="names">Серік & Қарақат</h1>
+            <p class="event-desc">Құрметті ағайын-туыс, бауырлар, дос-жарандар мен әріптестер!</p>
+            <p class="text">Сіздерді ұлымыз мен келініміздің өмірлік сапарын бірге бастауға арналған салтанатты тойымыздың қадірлі қонағы болуға шақырамыз!</p>
+        </header>
+
+        <!-- Таймер Бөлімі -->
+        <section class="section countdown-section">
+            <h2>ТОЙҒА ДЕЙІН ҚАЛДЫ:</h2>
+            <div class="timer">
+                <div class="time-box"><span id="days">00</span><p>күн</p></div>
+                <div class="time-box"><span id="hours">00</span><p>сағат</p></div>
+                <div class="time-box"><span id="minutes">00</span><p>минут</p></div>
+                <div class="time-box"><span id="seconds">00</span><p>секунд</p></div>
+            </div>
+        </section>
+
+        <!-- Бағдарлама және Уақыты -->
+        <section class="section details-section">
+            <div class="detail-card">
+                <i class="fas fa-calendar-alt icon"></i>
+                <h3>КҮНІ МЕН УАҚЫТЫ</h3>
+                <p>25 Казан 2026 жыл</p>
+                <p>Сағат: 18:00-де</p>
+            </div>
+            <div class="detail-card">
+                <i class="fas fa-map-marker-alt icon"></i>
+                <h3>МЕКЕН-ЖАЙЫ</h3>
+                <p>Алматы қаласы,</p>
+                <p>"Rixos" Мейрамханасы</p>
+                <p>Достық даңғылы, 50</p>
+            </div>
+        </section>
+
+        <!-- Карта Батырмалары -->
+        <section class="section map-buttons">
+            <a href="https://2gis.kz" target="_blank" class="btn btn-2gis">
+                <i class="fas fa-location-arrow"></i> 2GIS арқылы ашу
+            </a>
+            <a href="https://maps.google.com" target="_blank" class="btn btn-google">
+                <i class="fas fa-map"></i> Google Maps арқылы ашу
+            </a>
+        </section>
+
+        <!-- Дресс-код -->
+        <section class="section dresscode-section">
+            <h2>ДРЕСС-КОД</h2>
+            <p>Кешіміздің сәнін келтіру үшін келесі түстердегі киім үлгісін таңдауыңызды өтінеміз:</p>
+            <div class="color-palette">
+                <div class="color" style="background-color: #d4af37;" title="Алтын"></div>
+                <div class="color" style="background-color: #f5f5dc;" title="Крем"></div>
+                <div class="color" style="background-color: #2c3e50;" title="Темно-синий"></div>
+                <div class="color" style="background-color: #ffffff; border: 1px solid #ccc;" title="Ақ"></div>
+            </div>
+        </section>
+
+        <!-- RSVP (Форма) -->
+        <section class="section rsvp-section">
+            <h2>ҚАТЫСУЫҢЫЗДЫ РАСТАҢЫЗ</h2>
+            <p>Тойға келетініңізді алдын ала хабарлауыңызды сұраймыз:</p>
+            
+            <form id="rsvpForm" class="rsvp-form">
+                <input type="text" id="guestName" placeholder="Аты-жөніңіз" required>
+                
+                <select id="attendance">
+                    <option value="Жұбайыммен келемін">Жұбайыммен келемін</option>
+                    <option value="Өзім жалғыз келемін">Өзім жалғыз келемін</option>
+                    <option value="Келе алмаймын">Өкінішке орай, келе алмаймын</option>
+                </select>
+
+                <button type="submit" class="btn btn-submit">
+                    <i class="fab fa-whatsapp"></i> WhatsApp арқылы растау
+                </button>
+            </form>
+        </section>
+
+        <footer class="footer">
+            <p>Той иелері: Серікбек & Бақытгүл</p>
+            <p class="created-by">Онлайн шақырту жасау: +7 700 000 00 00</p>
+        </footer>
+    </div>
+
+    <!-- Тікелей өзіміздің JS файлды қосамыз -->
+    <script src="script.js"></script>
+</body>
+</html>
