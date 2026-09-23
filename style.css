@@ -5,26 +5,81 @@
 }
 
 body {
-    background-color: #fbf9f5;
+    background-color: #faf8f5;
     color: #333333;
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* 1. АНИМАЦИЯЛАНҒАН КОНВЕРТ */
+.envelope-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
     display: flex;
     justify-content: center;
-    padding: 10px;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease, visibility 1s ease;
 }
 
-.container {
-    max-width: 450px;
-    width: 100%;
+.envelope-card {
     background: #ffffff;
-    border: 2px solid #d4af37;
-    border-radius: 20px;
-    padding: 25px 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border: 3px solid #d4af37;
+    border-radius: 15px;
+    padding: 40px 20px;
     text-align: center;
+    max-width: 380px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
 }
 
-/* Музыка батырмасы */
+.stamp { font-size: 40px; margin-bottom: 10px; }
+.couple-names { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: #d4af37; margin: 15px 0; }
+.click-hint { font-size: 13px; color: #777; margin-bottom: 20px; }
+
+.open-btn {
+    background: #d4af37;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.open-btn:hover { transform: scale(1.05); }
+
+/* 2. ГҮЛ КҮЛТЕЛЕРІ */
+#petalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.petal {
+    position: absolute;
+    background: #ffd1dc;
+    border-radius: 150% 0 150% 0;
+    opacity: 0.7;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    100% { transform: translateY(105vh) rotate(360deg); }
+}
+
+/* 3. МУЗЫКА БАТЫРМАСЫ */
 .music-btn {
     position: fixed;
     bottom: 20px;
@@ -43,127 +98,76 @@ body {
     z-index: 1000;
 }
 
-.ornament {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    letter-spacing: 3px;
-    color: #888;
-    font-size: 14px;
-}
-
-.names {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 38px;
-    color: #d4af37;
-    margin: 15px 0;
-}
-
-.section {
-    margin-top: 35px;
-    padding-top: 20px;
-    border-top: 1px solid #f0e6d2;
-}
-
-h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    color: #d4af37;
-    margin-bottom: 15px;
-}
-
-/* Таймер */
-.timer {
+/* 4. ПАРАЛЛАХ ХЕАДЕР */
+.header.parallax {
+    position: relative;
+    height: 60vh;
+    background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
     display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-}
-
-.time-box {
-    background: #faf6ee;
-    border: 1px solid #e2d2b4;
-    border-radius: 10px;
-    padding: 10px;
-    width: 22%;
-}
-
-.time-box span {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-}
-
-.time-box p {
-    font-size: 11px;
-    color: #777;
-}
-
-/* Карта және батырмалар */
-.details-section {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.detail-card .icon {
-    font-size: 24px;
-    color: #d4af37;
-    margin-bottom: 5px;
-}
-
-.btn {
-    display: block;
-    padding: 12px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     color: white;
 }
 
+.overlay-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.header-text { position: relative; z-index: 2; }
+.names { font-family: 'Cormorant Garamond', serif; font-size: 45px; color: #f3e5ab; }
+
+/* НЕГІЗГІ КОНТЕЙНЕР */
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #e8e0d0;
+}
+
+h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: #d4af37; margin-bottom: 15px; }
+
+/* ТАЙМЕР */
+.timer { display: flex; justify-content: space-between; }
+.time-box { background: #fff; border: 1px solid #d4af37; border-radius: 10px; padding: 10px; width: 22%; }
+.time-box span { font-size: 22px; font-weight: bold; }
+
+/* БАТЫРМАЛАР */
+.btn { display: block; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 10px; color: white; }
+.btn-calendar { background-color: #d4af37; }
 .btn-2gis { background-color: #63b22f; }
 .btn-google { background-color: #4285f4; }
-.btn-submit { 
-    background-color: #25d366; 
-    border: none; 
-    width: 100%; 
-    font-size: 16px; 
-    cursor: pointer;
-}
+.btn-submit { background-color: #25d366; border: none; width: 100%; font-size: 16px; cursor: pointer; }
 
-/* Дресс код */
-.color-palette {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-}
+/* TIMELINE (БАҒДАРЛАМА) */
+.timeline { text-align: left; margin: 0 auto; max-width: 350px; }
+.timeline-item { display: flex; margin-bottom: 15px; border-left: 2px solid #d4af37; padding-left: 15px; }
+.timeline-item .time { font-weight: bold; color: #d4af37; width: 70px; }
 
-.color {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-}
+/* ГАЛЕРЕЯ */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.gallery img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; }
 
-/* Форма */
-.rsvp-form input, .rsvp-form select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-}
+/* ДРЕСС КОД */
+.color-palette { display: flex; justify-content: center; gap: 15px; }
+.color { width: 35px; height: 35px; border-radius: 50%; }
 
-.footer {
-    margin-top: 40px;
-    font-size: 12px;
-    color: #888;
-}
+/* ФОРМА */
+.rsvp-form input, .rsvp-form select { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 8px; }
 
-.created-by {
-    margin-top: 5px;
-    color: #bbb;
-}
+.footer { margin-top: 40px; font-size: 13px; color: #888; }
+
+/* АНИМАЦИЯ ПАЙДА БОЛУ */
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
