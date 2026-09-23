@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fbf9f5;
+    color: #333333;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.container {
+    max-width: 450px;
+    width: 100%;
+    background: #ffffff;
+    border: 2px solid #d4af37;
+    border-radius: 20px;
+    padding: 25px 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+/* Музыка батырмасы */
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #d4af37;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.ornament {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    letter-spacing: 3px;
+    color: #888;
+    font-size: 14px;
+}
+
+.names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    color: #d4af37;
+    margin: 15px 0;
+}
+
+.section {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #f0e6d2;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+/* Таймер */
+.timer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.time-box {
+    background: #faf6ee;
+    border: 1px solid #e2d2b4;
+    border-radius: 10px;
+    padding: 10px;
+    width: 22%;
+}
+
+.time-box span {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.time-box p {
+    font-size: 11px;
+    color: #777;
+}
+
+/* Карта және батырмалар */
+.details-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detail-card .icon {
+    font-size: 24px;
+    color: #d4af37;
+    margin-bottom: 5px;
+}
+
+.btn {
+    display: block;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    color: white;
+}
+
+.btn-2gis { background-color: #63b22f; }
+.btn-google { background-color: #4285f4; }
+.btn-submit { 
+    background-color: #25d366; 
+    border: none; 
+    width: 100%; 
+    font-size: 16px; 
+    cursor: pointer;
+}
+
+/* Дресс код */
+.color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.color {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+/* Форма */
+.rsvp-form input, .rsvp-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 12px;
+    color: #888;
+}
+
+.created-by {
+    margin-top: 5px;
+    color: #bbb;
+}
