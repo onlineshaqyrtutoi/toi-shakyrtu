@@ -3,111 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тойға Шақырту</title>
+    <title>Тойға Шақырту - Серік & Қарақат</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Тікелей өзіміздің CSS файлды қосамыз -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Фондық музыка батырмасы -->
+    <!-- Гүл күлтелеріне арналған контейнер -->
+    <div id="petalContainer"></div>
+
+    <!-- 1. АНИМАЦИЯЛАНҒАН КОНВЕРТ (ОБЛОЖКА) -->
+    <div class="envelope-overlay" id="envelopeOverlay">
+        <div class="envelope-card">
+            <div class="stamp">⚜️</div>
+            <h2>ТОЙҒА ШАҚЫРУ</h2>
+            <p class="couple-names">Серік & Қарақат</p>
+            <p class="click-hint">Шақыртуды ашу үшін төмендегі батырманы басыңыз</p>
+            <button class="open-btn" onclick="openInvitation()">
+                <i class="fas fa-envelope-open"></i> Шақыртуды ашу
+            </button>
+        </div>
+    </div>
+
+    <!-- МУЗЫКА БАТЫРМАСЫ -->
     <div class="music-btn" id="musicBtn" onclick="toggleMusic()">
         <i class="fas fa-music"></i>
     </div>
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic" loop preload="auto">
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="container">
-        <!-- Басты Бөлім -->
-        <header class="header">
-            <div class="ornament">⚜️ ⚜️ ⚜️</div>
-            <p class="subtitle">ТОЙҒА ШАҚЫРУ</p>
-            <h1 class="names">Серік & Қарақат</h1>
-            <p class="event-desc">Құрметті ағайын-туыс, бауырлар, дос-жарандар мен әріптестер!</p>
-            <p class="text">Сіздерді ұлымыз мен келініміздің өмірлік сапарын бірге бастауға арналған салтанатты тойымыздың қадірлі қонағы болуға шақырамыз!</p>
+    <!-- НЕГІЗГІ САЙТ -->
+    <div class="main-content" id="mainContent">
+        
+        <!-- Параллакс Фонды Шақыру Беті -->
+        <header class="header parallax">
+            <div class="overlay-bg"></div>
+            <div class="header-text fade-in">
+                <div class="ornament">⚜️ ⚜️ ⚜️</div>
+                <p class="subtitle">УЙЛЕНУ ТОЙЫ</p>
+                <h1 class="names">Серік & Қарақат</h1>
+                <p class="date-header">25 ҚАРАША 2026</p>
+            </div>
         </header>
 
-        <!-- Таймер Бөлімі -->
-        <section class="section countdown-section">
-            <h2>ТОЙҒА ДЕЙІН ҚАЛДЫ:</h2>
-            <div class="timer">
-                <div class="time-box"><span id="days">00</span><p>күн</p></div>
-                <div class="time-box"><span id="hours">00</span><p>сағат</p></div>
-                <div class="time-box"><span id="minutes">00</span><p>минут</p></div>
-                <div class="time-box"><span id="seconds">00</span><p>секунд</p></div>
-            </div>
-        </section>
+        <div class="container">
+            <!-- Шақыру Сөзі -->
+            <section class="section fade-in">
+                <p class="event-desc">Құрметті ағайын-туыс, бауырлар, дос-жарандар мен әріптестер!</p>
+                <p class="text">Сіздерді ұлымыз мен келініміздің өмірлік сапарын бірге бастауға арналған салтанатты тойымыздың қадірлі қонағы болуға шақырамыз!</p>
+            </section>
 
-        <!-- Бағдарлама және Уақыты -->
-        <section class="section details-section">
-            <div class="detail-card">
-                <i class="fas fa-calendar-alt icon"></i>
-                <h3>КҮНІ МЕН УАҚЫТЫ</h3>
-                <p>25 Казан 2026 жыл</p>
-                <p>Сағат: 18:00-де</p>
-            </div>
-            <div class="detail-card">
-                <i class="fas fa-map-marker-alt icon"></i>
-                <h3>МЕКЕН-ЖАЙЫ</h3>
-                <p>Алматы қаласы,</p>
-                <p>"Rixos" Мейрамханасы</p>
-                <p>Достық даңғылы, 50</p>
-            </div>
-        </section>
+            <!-- ТАЙМЕР -->
+            <section class="section fade-in">
+                <h2>ТОЙҒА ДЕЙІН ҚАЛДЫ:</h2>
+                <div class="timer">
+                    <div class="time-box"><span id="days">00</span><p>күн</p></div>
+                    <div class="time-box"><span id="hours">00</span><p>сағат</p></div>
+                    <div class="time-box"><span id="minutes">00</span><p>минут</p></div>
+                    <div class="time-box"><span id="seconds">00</span><p>секунд</p></div>
+                </div>
+            </section>
 
-        <!-- Карта Батырмалары -->
-        <section class="section map-buttons">
-            <a href="https://2gis.kz" target="_blank" class="btn btn-2gis">
-                <i class="fas fa-location-arrow"></i> 2GIS арқылы ашу
-            </a>
-            <a href="https://maps.google.com" target="_blank" class="btn btn-google">
-                <i class="fas fa-map"></i> Google Maps арқылы ашу
-            </a>
-        </section>
+            <!-- КҮНТІЗБЕГЕ ҚОСУ БАТЫРМАСЫ -->
+            <section class="section fade-in">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D0%A1%D0%B5%D1%80%D1%96%D0%BA+%26+%D2%9A%D0%B0%D1%80%D0%B0%D2%9B%D0%B0%D1%82+%D0%A2%D0%BE%D0%B9%D1%8B&dates=20261125T130000Z/20261125T180000Z&details=%D0%A2%D0%BE%D0%B9%D1%93%D0%B0+%D1%88%D0%B0%D2%9B%D1%8B%D1%80%D1%82%D1%83!&location=Rixos+Hotel+Almaty" target="_blank" class="btn btn-calendar">
+                    <i class="far fa-calendar-plus"></i> Google Calendar-ға қосу
+                </a>
+            </section>
 
-        <!-- Дресс-код -->
-        <section class="section dresscode-section">
-            <h2>ДРЕСС-КОД</h2>
-            <p>Кешіміздің сәнін келтіру үшін келесі түстердегі киім үлгісін таңдауыңызды өтінеміз:</p>
-            <div class="color-palette">
-                <div class="color" style="background-color: #d4af37;" title="Алтын"></div>
-                <div class="color" style="background-color: #f5f5dc;" title="Крем"></div>
-                <div class="color" style="background-color: #2c3e50;" title="Темно-синий"></div>
-                <div class="color" style="background-color: #ffffff; border: 1px solid #ccc;" title="Ақ"></div>
-            </div>
-        </section>
+            <!-- ТОЙ БАҒДАРЛАМАСЫ (TIMELINE) -->
+            <section class="section fade-in">
+                <h2>ТОЙ БАҒДАРЛАМАСЫ</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time">18:00</div>
+                        <div class="desc">Қонақтардың жиналуы & Фотосессия</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">19:00</div>
+                        <div class="desc">Жастардың салтанатты кіруі & Беташар</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">20:00</div>
+                        <div class="desc">Тойдың ашылуы & Шоу бағдарлама</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">23:00</div>
+                        <div class="desc">Той торты & Естелік суреттер</div>
+                    </div>
+                </div>
+            </section>
 
-        <!-- RSVP (Форма) -->
-        <section class="section rsvp-section">
-            <h2>ҚАТЫСУЫҢЫЗДЫ РАСТАҢЫЗ</h2>
-            <p>Тойға келетініңізді алдын ала хабарлауыңызды сұраймыз:</p>
-            
-            <form id="rsvpForm" class="rsvp-form">
-                <input type="text" id="guestName" placeholder="Аты-жөніңіз" required>
-                
-                <select id="attendance">
-                    <option value="Жұбайыммен келемін">Жұбайыммен келемін</option>
-                    <option value="Өзім жалғыз келемін">Өзім жалғыз келемін</option>
-                    <option value="Келе алмаймын">Өкінішке орай, келе алмаймын</option>
-                </select>
+            <!-- МЕКЕН-ЖАЙЫ МЕН КАРТА -->
+            <section class="section fade-in">
+                <h2>МЕКЕН-ЖАЙЫ</h2>
+                <p><strong>Алматы қаласы</strong></p>
+                <p>"Rixos" Мейрамханасы, Сейфуллин даңғылы 506</p>
+                <div class="map-buttons">
+                    <a href="https://2gis.kz" target="_blank" class="btn btn-2gis"><i class="fas fa-location-arrow"></i> 2GIS арқылы ашу</a>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-google"><i class="fas fa-map"></i> Google Maps</a>
+                </div>
+            </section>
 
-                <button type="submit" class="btn btn-submit">
-                    <i class="fab fa-whatsapp"></i> WhatsApp арқылы растау
-                </button>
-            </form>
-        </section>
+            <!-- LOVE STORY / ФОТОГАЛЕРЕЯ -->
+            <section class="section fade-in">
+                <h2>LOVE STORY</h2>
+                <div class="gallery">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80" alt="Love story 1">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=80" alt="Love story 2">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=500&q=80" alt="Love story 3">
+                </div>
+            </section>
 
-        <footer class="footer">
-            <p>Той иелері: Серікбек & Бақытгүл</p>
-            <p class="created-by">Онлайн шақырту жасау: +7 700 000 00 00</p>
-        </footer>
+            <!-- ДРЕСС-КОД -->
+            <section class="section fade-in">
+                <h2>ДРЕСС-КОД</h2>
+                <p>Кешіміздің сәнін келтіру үшін келесі түстердегі киім үлгісін таңдауыңызды өтінеміз:</p>
+                <div class="color-palette">
+                    <div class="color" style="background-color: #d4af37;" title="Алтын"></div>
+                    <div class="color" style="background-color: #f5f5dc;" title="Крем"></div>
+                    <div class="color" style="background-color: #2c3e50;" title="Темно-синий"></div>
+                    <div class="color" style="background-color: #ffffff; border: 1px solid #ccc;" title="Ақ"></div>
+                </div>
+            </section>
+
+            <!-- RSVP ФОРМА -->
+            <section class="section fade-in">
+                <h2>ҚАТЫСУЫҢЫЗДЫ РАСТАҢЫЗ</h2>
+                <form id="rsvpForm" class="rsvp-form">
+                    <input type="text" id="guestName" placeholder="Аты-жөніңіз" required>
+                    <select id="attendance">
+                        <option value="Жұбайыммен келемін">Жұбайыммен келемін</option>
+                        <option value="Өзім жалғыз келемін">Өзім жалғыз келемін</option>
+                        <option value="Келе алмаймын">Өкінішке орай, келе алмаймын</option>
+                    </select>
+                    <button type="submit" class="btn btn-submit"><i class="fab fa-whatsapp"></i> WhatsApp арқылы растау</button>
+                </form>
+            </section>
+
+            <footer class="footer">
+                <p>Той иелері: Серікбек & Бақытгүл</p>
+            </footer>
+        </div>
     </div>
 
-    <!-- Тікелей өзіміздің JS файлды қосамыз -->
     <script src="script.js"></script>
 </body>
 </html>
